@@ -6,7 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
-  }
+  },
+  {
+    path: 'subpage',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/tab1-pages.module').then((m) => m.Tab1PagesModule),
+      },
+    ]
+  },
 ];
 
 @NgModule({
