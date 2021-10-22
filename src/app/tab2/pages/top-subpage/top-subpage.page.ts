@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-subpage',
@@ -6,11 +7,21 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   templateUrl: 'top-subpage.page.html',
 })
 export class TopSubpagePage implements OnInit, OnDestroy {
+  comingFrom: string;
+
+  constructor(private router: Router) {}
   ngOnInit() {
-    console.log('here');
+    const state = this.router.getCurrentNavigation().extras.state;
+    this.comingFrom = state.hasOwnProperty('comingFrom') ? state['comingFrom'] : '...';
+
+    console.log('TopSubpagePage Init and coming from ', this.comingFrom);
   }
 
   ngOnDestroy() {
     console.log('TopSubpageComponent is destroyed')
+  }
+
+  goToSubpage() {
+    this.router.navigate(['tabs/tab2/top-subpage/subpage'])
   }
 }
