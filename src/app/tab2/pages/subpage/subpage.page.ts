@@ -10,11 +10,11 @@ export class SubpagePage implements OnInit, OnDestroy {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    console.log('SubpagePage Init');
+    console.log('tab2 > SubpagePage Init');
   }
 
   ngOnDestroy() {
-    console.log('SubpagePage is destroyed')
+    console.log('tab2 > SubpagePage is destroyed')
   }
 
   goBack() {

@@ -9,17 +9,20 @@ import { NavController } from '@ionic/angular';
 })
 export class TopSubpagePage implements OnInit, OnDestroy {
   comingFrom: string;
+  name: string;
 
   constructor(private router: Router, private navCtrl: NavController) {}
   ngOnInit() {
     const state = this.router.getCurrentNavigation().extras.state;
     this.comingFrom = state.hasOwnProperty('comingFrom') ? state['comingFrom'] : '...';
+    this.name = state.hasOwnProperty('name') ? state['name'] : 'MISSING NAME....';
 
-    console.log('TopSubpagePage Init and coming from ', this.comingFrom);
+    console.log('tab2 > TopSubpagePage Init and coming from ', this.comingFrom);
+    console.log('tab2 > TopSubpagePage NAME ', this.name);
   }
 
   ngOnDestroy() {
-    console.log('TopSubpageComponent is destroyed')
+    console.log('tab2 > TopSubpageComponent is destroyed')
   }
 
   goToSubpage() {
@@ -27,6 +30,7 @@ export class TopSubpagePage implements OnInit, OnDestroy {
   }
 
   goBack() {
-    this.navCtrl.back();
+    const backToUrl = (this.name === 'MISSING NAME....' || this.name === 'ROBERT') ? 'tabs/tab2' : 'tabs/tab1/subpage';
+    this.navCtrl.navigateBack([backToUrl]);
   }
 }

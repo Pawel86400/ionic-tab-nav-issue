@@ -11,7 +11,7 @@ export class Tab2Page {
   constructor(private router: Router) {}
 
   goToTopSubpage() {
-    this.router.navigate(['tabs/tab2/top-subpage'], { state: { comingFrom: 'top-subpage' }})
+    this.router.navigate(['tabs/tab2/top-subpage'], { state: { comingFrom: 'top-subpage', name: 'ROBERT' }})
   }
 
 }

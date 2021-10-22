@@ -7,14 +7,19 @@ import { Router } from '@angular/router';
   templateUrl: 'tab-one-subpage.page.html',
 })
 export class TabOneSubpagePage implements OnInit, OnDestroy {
+  popularNames = ['Ben', 'John', 'Steven'];
   constructor(private router: Router) {}
 
   ngOnInit() {
-    console.log('SubpagePage Init');
+    console.log('tab1 > SubpagePage Init');
   }
 
   ngOnDestroy() {
-    console.log('SubpagePage is destroyed')
+    console.log('tab1 > SubpagePage is destroyed')
+  }
+
+  goToTabTwoSubpage(name){
+    this.router.navigate(['tabs/tab2/top-subpage'], { state: { comingFrom: 'tab 1', name }})
   }
 
   goBack() {
