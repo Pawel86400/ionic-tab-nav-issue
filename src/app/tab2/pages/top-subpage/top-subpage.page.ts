@@ -26,7 +26,7 @@ export class TopSubpagePage implements OnInit, OnDestroy {
   }
 
   goToSubpage() {
-    this.router.navigate(['tabs/tab2/top-subpage/subpage'])
+    this.navCtrl.navigateForward(['tabs/tab2/top-subpage/subpage'])
   }
 
   goBack() {

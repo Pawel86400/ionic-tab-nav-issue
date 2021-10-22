@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page {
 
-  constructor(private router: Router) {}
+  constructor(private navCtrl: NavController) {}
 
   goToSubpage() {
-    this.router.navigate(['tabs/tab1/subpage'])
+    this.navCtrl.navigateForward(['tabs/tab1/subpage'])
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
 
-  constructor(private router: Router) {}
+  constructor(private navCtrl: NavController) {}
 
   goToTopSubpage() {
-    this.router.navigate(['tabs/tab2/top-subpage'], { state: { comingFrom: 'top-subpage', name: 'ROBERT' }})
+    this.navCtrl.navigateForward('tabs/tab2/top-subpage', { state: { comingFrom: 'top-subpage', name: 'ROBERT' }})
   }
 
 }

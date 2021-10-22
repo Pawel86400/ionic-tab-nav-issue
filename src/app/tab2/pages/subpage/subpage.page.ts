@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-subpage',
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: 'subpage.page.html',
 })
 export class SubpagePage implements OnInit, OnDestroy {
-  constructor(private router: Router) {}
+  constructor(private navCtrl: NavController) {}
 
   ngOnInit() {
     console.log('tab2 > SubpagePage Init');
@@ -18,6 +18,6 @@ export class SubpagePage implements OnInit, OnDestroy {
   }
 
   goBack() {
-    this.router.navigate(['tabs/tab2/top-subpage']);
+    this.navCtrl.navigateForward(['tabs/tab2/top-subpage']);
   }
 }
